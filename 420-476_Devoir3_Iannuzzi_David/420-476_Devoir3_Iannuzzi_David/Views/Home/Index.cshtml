@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Accueil</h2>
+
+@using (Html.BeginForm("Index", "Home"))
+{
+    <table>
+        <tr>
+            <td>
+                Identifiant
+
+            </td>
+            <td>
+                <input id="idIn" type="text" name="id" required value=@ViewBag.id>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mot de passe
+            </td>
+            <td>
+                <input id="pswIn" type="password" required name="psw" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @if (ViewBag.check == "yes")
+                {
+                    <input id="rememberIn" type="checkbox" name="remember" value="yes" checked />
+                }
+                else
+                {
+                    <input id="rememberIn" type="checkbox" name="remember" value="yes" />
+                }
+                Se souvenir de moi sur cet ordinateur
+            </td>
+            <!--<td></td>-->
+        </tr>
+        <tr>
+            <td>
+                <input id="connexion" type="submit" value="Connexion" />
+            </td>
+            <td>
+                @{
+
+                    Session["viewed"] = "true";
+                }
+            </td>
+        </tr>
+    </table>
+ }
